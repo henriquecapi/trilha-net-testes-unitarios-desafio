@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TestesUnitarios.Desafio.Console\TestesUnitarios.Desafio.Console.csproj" />
+    <ProjectReference Include="..\TestesUnitarios.Desafio\TestesUnitarios.Desafio.csproj" />
   </ItemGroup>
 
 </Project>

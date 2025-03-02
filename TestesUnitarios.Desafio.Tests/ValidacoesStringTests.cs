@@ -1,5 +1,4 @@
-using TestesUnitarios.Desafio.Console.Services;
-
+using TestesUnitarios.Desafio.Services;
 namespace TestesUnitarios.Desafio.Tests;
 
 public class ValidacoesStringTests
@@ -9,33 +8,35 @@ public class ValidacoesStringTests
     [Fact]
     public void DeveRetornar6QuantidadeCaracteresDaPalavraMatrix()
     {
-        //TODO: Corrigir a variável "texto" e "resultadoEsperado" da seção Arrange
-
         // Arrange
-        var texto = "a";
-        var resultadoEsperado = 0;
+        var texto = "abcdef";
+        var resultadoEsperado = 6;
 
         // Act
         var resultado = _validacoes.RetornarQuantidadeCaracteres(texto);
 
         // Assert
         Assert.Equal(resultadoEsperado, resultado);
+
+        Console.WriteLine($"Resultado-7 esperado ({resultadoEsperado}) = ({resultado}) Resultado");
+        Console.WriteLine("-------------------------------------------------------------------");
     }
 
     [Fact]
-    public void DeveContemAPalavraQualquerNoTexto()
+    public void DeveConterAPalavraQualquerNoTexto()
     {
         // Arrange
         var texto = "Esse é um texto qualquer";
         var textoProcurado = "qualquer";
 
-        //TODO: Corrigir a chamada do método "ContemCaractere" da seção Act
         // Act
-         _validacoes.ContemCaractere(texto, textoProcurado);
+         var resultado = _validacoes.ContemCaractere(texto, textoProcurado);
 
         // Assert
-        //TODO: Corrigir o Assert.True com base no retorno da chamada ao método
-        Assert.True(true);
+        Assert.True(resultado);
+
+        Console.WriteLine($"Resultado-8 esperado (true) = ({resultado}) Resultado");
+        Console.WriteLine("-------------------------------------------------------------------");
     }
 
     [Fact]
@@ -49,23 +50,46 @@ public class ValidacoesStringTests
         var resultado = _validacoes.ContemCaractere(texto, textoProcurado);
 
         // Assert
-        //TODO: Corrigir o Assert.False com base no retorno da chamada ao método
-        Assert.False(true);
+        Assert.False(resultado);
+
+        Console.WriteLine($"Resultado-9 esperado (false) = ({resultado}) Resultado");
+        Console.WriteLine("-------------------------------------------------------------------");
     }
 
-    //TODO: Corrigir a anotação [Fact]
+    [Fact]
     public void TextoDeveTerminarComAPalavraProcurado()
     {
         //TODO: Corrigir a variável "textoProcurado" seção Arrange
 
         // Arrange
         var texto = "Começo, meio e fim do texto procurado";
-        var textoProcurado = "teste";
+        var textoProcurado = "procurado";
 
         // Act
         var resultado = _validacoes.TextoTerminaCom(texto, textoProcurado);
 
         // Assert
         Assert.True(resultado);
+
+        Console.WriteLine($"Resultado-10 tem que ser True = ({resultado})");
+        Console.WriteLine("-------------------------------------------------------------------");
+    
+    }
+    [Fact]
+    public void TextoNaoDeveTerminarComAPalavraProcurado()
+    {
+        // Arrange
+        var texto = "Começo, meio e fim do texto procurado";
+        var textoProcurado = "texto";
+
+        // Act
+        var resultado = _validacoes.TextoTerminaCom(texto, textoProcurado);
+
+        // Assert
+        Assert.False(resultado);
+
+        Console.WriteLine($"Resultado-11 tem que ser False = ({resultado})");
+        Console.WriteLine("-------------------------------------------------------------------");
+    
     }
 }

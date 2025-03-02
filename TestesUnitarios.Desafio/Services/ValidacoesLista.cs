@@ -1,4 +1,4 @@
-namespace TestesUnitarios.Desafio.Console.Services
+namespace TestesUnitarios.Desafio.Services
 {
     public class ValidacoesLista
     {
